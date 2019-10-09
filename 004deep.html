@@ -1,0 +1,57 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="root">
+      <ul>
+        <li><a href=""></a></li>
+        <li><a href=""></a></li>
+      </ul>
+      <p></p>
+
+      <div>
+        <p>
+          <span>
+            xixi
+          </span>
+        </p>
+      </div>
+    </div>
+
+    <script>
+      const nodes = document.getElementById("root");
+
+      function deep_first_seach(node) {
+        let stack = [node];
+
+        while (stack.length > 0) {
+          const item = stack.pop();
+          console.log(item.tagName);
+
+          for (let i = item.children.length - 1; i >= 0; i--) {
+            stack.push(item.children[i]);
+          }
+        }
+      }
+
+      const deep_first_seach_digui = function(node) {
+        let stack = [node];
+
+        while (stack.length > 0) {
+          const item = stack.pop();
+          console.log(item.tagName);
+
+          for (let i = 0; i < item.children.length; i++) {
+            deep_first_seach_digui(item.children[i]);
+          }
+        }
+      }
+      deep_first_seach(nodes);
+      deep_first_seach_digui(nodes);
+    </script>
+  </body>
+</html>

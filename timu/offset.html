@@ -1,0 +1,86 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .bdr {
+            border: 1px solid red;
+        }
+
+        .bdb {
+            border: 1px solid blue;
+            border-width: 10px;
+        }
+
+        .w-300 {
+            width: 300px;
+        }
+        
+        .h-300 {
+            height: 300px;
+        }
+
+        .hd {
+          overflow: scroll;
+        }
+
+        .pd-50{
+          padding: 50px;
+        }
+        .mg {
+          margin: 20px;
+        }
+        
+    </style>
+</head>
+<body>
+    
+    <div class="bdr w-300 h-300 hd" id="out">
+        <div class="pd-50 bdb mg" id="in">
+          jkdsf;aj<br>
+          jkdsf;aj<br>
+          jkdsf;aj<br>
+          jkdsf;aj<br>
+          jkdsf;aj<br>
+          jkdsf;aj<br>
+          jkdsf;aj<br>
+          jkdsf;aj<br>
+          jkdsf;aj<br>
+          jkdsf;aj<br>
+          jkdsf;aj<br>
+          jkdsf;aj<br>
+          jkdsf;aj<br>
+          jkdsf;aj<br>
+          jkdsf;aj<br>
+          jkdsf;aj<br>
+          jkdsf;aj<br>
+          jkdsf;aj<br>
+          jkdsf;aj<br>
+          jkdsf;aj<br>
+          jkdsf;aj<br>
+          jkdsf;aj<br>
+          jkdsf;aj<br>
+        </div>
+
+    </div>
+
+    <script>
+
+// document.querySelector('#app > article > div > section.prod > div > div.split-wrap > div.shortcut > ul > li:nth-child(1)').getBoundingClientRect();
+// getBoundingClientRect是相对于现在视窗的位置，滚动了获取不到被卷上去的高度
+        const out = document.getElementById('out');
+        const inner = document.getElementById('in');
+  
+        function getLayout(el, top = 0) {
+          if (!el) return top; 
+          top += el.offsetTop
+          return getLayout( el.offsetParent, top);
+        }
+  
+        console.log(getLayout(inner));
+      </script>
+
+</body>
+</html>
